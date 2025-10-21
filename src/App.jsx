@@ -29,6 +29,15 @@ function App() {
             </PrivateRoute>
           }
         />
+        {/* Admin and editor can access */}
+        <Route
+          path="editor"
+          element={
+            <PrivateRoute allowedRoles={[ROLE.ADMIN, ROLE.EDITOR]}>
+              <EditorDashboard />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </Router>
   );

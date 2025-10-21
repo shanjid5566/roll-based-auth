@@ -7,7 +7,7 @@ export const ROLE = {
 const getCurrentUser = () => {
   return {
     isAuthenticated: true,
-    role: ROLE.ADMIN,
+    role: ROLE.EDITOR,
     loading: false,
   };
 };
