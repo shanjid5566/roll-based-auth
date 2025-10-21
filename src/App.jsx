@@ -6,9 +6,9 @@ import { ROLE } from "./utilities/role";
 const Home = () => <h2>Home Page</h2>;
 const Login = () => <h2>Login Page</h2>;
 const Unauthorized = () => <h2>Unauthorized Access</h2>;
-const AdminDashboard = () => <h2>Admin Dashboard</h2>;
-const EditorDashboard = () => <h2>Editor Dashboard</h2>;
-const userProfile = () => <h2>User Profile</h2>;
+const AdminDashboard = () => <h2>Admin Dashboard (Admin Only)</h2>;
+const EditorDashboard = () => <h2>Editor Dashboard (Editor , Admin)</h2>;
+const UserProfile = () => <h2>User Profile (User, Editor, Admin)</h2>;
 function App() {
   console.log(ROLE.ADMIN);
   return (
@@ -35,6 +35,16 @@ function App() {
           element={
             <PrivateRoute allowedRoles={[ROLE.ADMIN, ROLE.EDITOR]}>
               <EditorDashboard />
+            </PrivateRoute>
+          }
+        />
+
+        {/* Admin, editor and user can access */}
+        <Route
+          path="profile"
+          element={
+            <PrivateRoute allowedRoles={[ROLE.ADMIN, ROLE.EDITOR, ROLE.USER]}>
+              <UserProfile />
             </PrivateRoute>
           }
         />
