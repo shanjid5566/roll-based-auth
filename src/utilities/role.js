@@ -1,14 +1,15 @@
-export const ROLES = {
+export const ROLE = {
   ADMIN: "admin",
   USER: "user",
   EDITOR: "editor",
 };
 
-const getcurrentUser = () => {
+const getCurrentUser = () => {
   return {
     isAuthenticated: true,
-    role: ROLES.ADMIN,
+    role: ROLE.ADMIN,
     loading: false,
   };
 };
-export default getcurrentUser;
+
+export default getCurrentUser;
